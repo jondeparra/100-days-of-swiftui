@@ -1,0 +1,75 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXFileReference section */
+		68F837102DFFAB46000035C9 /* Day01.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day01.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		68F837092DFFAB2E000035C9 = {
+			isa = PBXGroup;
+			children = (
+				68F837102DFFAB46000035C9 /* Day01.playground */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		68F8370A2DFFAB2E000035C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1640;
+			};
+			buildConfigurationList = 68F8370D2DFFAB2E000035C9 /* Build configuration list for PBXProject "IntroductionToSwift" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 68F837092DFFAB2E000035C9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		68F8370E2DFFAB2E000035C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		68F8370F2DFFAB2E000035C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68F8370D2DFFAB2E000035C9 /* Build configuration list for PBXProject "IntroductionToSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68F8370E2DFFAB2E000035C9 /* Debug */,
+				68F8370F2DFFAB2E000035C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 68F8370A2DFFAB2E000035C9 /* Project object */;
+}
