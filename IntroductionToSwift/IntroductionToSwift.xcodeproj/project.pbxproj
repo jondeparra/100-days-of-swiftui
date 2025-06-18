@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		688D5E4A2E0371C0000F5712 /* Day04.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day04.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		688D5E4B2E0383FE000F5712 /* Checkpoint02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Checkpoint02.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		68F837102DFFAB46000035C9 /* Day01.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day01.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		68F837112E00CDE6000035C9 /* Day02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day02.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		68F837122E00CE47000035C9 /* Checkpoint01.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Checkpoint01.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -17,6 +19,8 @@
 		68F837092DFFAB2E000035C9 = {
 			isa = PBXGroup;
 			children = (
+				688D5E4B2E0383FE000F5712 /* Checkpoint02.playground */,
+				688D5E4A2E0371C0000F5712 /* Day04.playground */,
 				68F837132E00D524000035C9 /* Day03.playground */,
 				68F837122E00CE47000035C9 /* Checkpoint01.playground */,
 				68F837112E00CDE6000035C9 /* Day02.playground */,
