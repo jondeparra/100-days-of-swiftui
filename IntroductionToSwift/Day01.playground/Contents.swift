@@ -32,10 +32,10 @@ let result = "⭐️ You win! ⭐️"
 let quote = "The he tapped a sign saying \"Believe\" and walked away."
 
 let movie = """
-A day in
-the life of an
-Apple engineer
-"""
+    A day in
+    the life of an
+    Apple engineer
+    """
 
 let nameLength = actor.count
 print(nameLength)
@@ -75,7 +75,7 @@ print(number2)
 let a = 1
 let b = 2.0
 //let c = a + b // throws error, can't mix Int or Double types
-let c = Double(a) + b //  works
+let c = Double(a) + b  //  works
 
 let double1 = 3.1
 let double2 = 3131.3131

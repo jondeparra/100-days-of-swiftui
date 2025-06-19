@@ -22,14 +22,14 @@ let firstBeatle = beatles[0]
 let firstNumber = numbers[0]
 //let notAllows = firstBeatle + firstNumber // can't add two separate types
 
-var scores = Array<Int>() // can also be deifned as [Int]()
+var scores = [Int]()  // can also be deifned as [Int]()
 scores.append(100)
 scores.append(80)
 scores.append(85)
 scores.append(scores[1])
 
 //var albums = [String]() // shorter notation mentioned above
-var albums = ["Folklore"] //  even shorter
+var albums = ["Folklore"]  //  even shorter
 albums.append("Fearless")
 albums.append("Red")
 print(albums.count)
@@ -60,24 +60,24 @@ print("Job title: \(employee[1])")
 print("Location: \(employee[2])")
 
 let employee2 = [
-  "name": "Taylor Swift",
-  "job": "Singer",
-  "location": "Nashville"
+    "name": "Taylor Swift",
+    "job": "Singer",
+    "location": "Nashville",
 ]
 print(employee2["name", default: "Unknown"])
 print(employee2["job", default: "Unknown"])
 print(employee2["location", default: "Unknown"])
 
 let hasGraduated = [
-  "Eric": false,
-  "Maeve": true,
-  "Otis": false
+    "Eric": false,
+    "Maeve": true,
+    "Otis": false,
 ]
 
 let olympics = [
-  2012: "London",
-  2016: "Rio de Janeiro",
-  2021: "Tokyo"
+    2012: "London",
+    2016: "Rio de Janeiro",
+    2021: "Tokyo",
 ]
 
 print(olympics[2012, default: "Unknown"])
@@ -95,10 +95,10 @@ archEnemies["Batman"] = "Penguin"
 // MARK: How to use sets for fast data lookup
 
 let actors = Set([
-  "Denzel Washington",
-  "Tom Cruise",
-  "Nicolas Cage",
-  "Samuel L Jackson"
+    "Denzel Washington",
+    "Tom Cruise",
+    "Nicolas Cage",
+    "Samuel L Jackson",
 ])
 
 var actors2 = Set<String>()
@@ -116,13 +116,13 @@ selected = "January"
 selected = "Friday "
 
 enum Weekday {
-  case monday
-  case tuesday
-  case wednesday
-  case thursday
-  case friday
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
 
-  //case monday, tuesday, wednesday, thursday, friday // much shorter
+    //case monday, tuesday, wednesday, thursday, friday // much shorter
 }
 
 var day = Weekday.monday

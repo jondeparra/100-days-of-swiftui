@@ -55,4 +55,4 @@ print("5 x 5 is \(5 * 5)")
  - In Swift, decimal numbers are called Double
  - You can store a simple true or false using a Boolean, or Bool
  - String interpolation lets us place data into strings efficiently
-*/
+ */
