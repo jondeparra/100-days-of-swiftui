@@ -11,6 +11,8 @@
 		688D5E4B2E0383FE000F5712 /* Checkpoint02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Checkpoint02.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		688EB0DA2E1B06D900DE0A7E /* Day08.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day08.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		688EB0DB2E1B0F2500DE0A7E /* Checkpoint04.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Checkpoint04.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		688EB0DC2E1B289700DE0A7E /* Day09.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day09.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		688EB0DD2E1B365D00DE0A7E /* Checkpoint05.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Checkpoint05.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		68D82B752E048072006495CE /* Day05.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day05.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		68D82B762E19D89A006495CE /* Day06.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day06.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		68D82B772E19D8DC006495CE /* Checkpoint03.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Checkpoint03.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -25,6 +27,8 @@
 		68F837092DFFAB2E000035C9 = {
 			isa = PBXGroup;
 			children = (
+				688EB0DD2E1B365D00DE0A7E /* Checkpoint05.playground */,
+				688EB0DC2E1B289700DE0A7E /* Day09.playground */,
 				688EB0DB2E1B0F2500DE0A7E /* Checkpoint04.playground */,
 				688EB0DA2E1B06D900DE0A7E /* Day08.playground */,
 				68D82B782E19E4BC006495CE /* Day07.playground */,
