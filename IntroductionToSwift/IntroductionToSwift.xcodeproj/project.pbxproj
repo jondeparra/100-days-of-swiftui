@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		6802838B2E238CF600BE3D9B /* Day15.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day15.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		688D5E4A2E0371C0000F5712 /* Day04.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day04.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		688D5E4B2E0383FE000F5712 /* Checkpoint02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Checkpoint02.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		688EB0DA2E1B06D900DE0A7E /* Day08.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Day08.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -36,6 +37,7 @@
 		68F837092DFFAB2E000035C9 = {
 			isa = PBXGroup;
 			children = (
+				6802838B2E238CF600BE3D9B /* Day15.playground */,
 				68C6C8C42E22497A00C7F2A8 /* Checkpoint09.playground */,
 				68C6C8C22E2241D000C7F2A8 /* Day14.playground */,
 				68C6C8C12E20BC9600C7F2A8 /* Checkpoint08.playground */,
