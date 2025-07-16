@@ -14,23 +14,23 @@ struct ContentView: View {
     @FocusState private var amountIsFocused: Bool
 
     let tipPercentages = [10, 15, 20, 25, 0]
+    let localCurrency = Locale.current.currency?.identifier ?? "USD"
 
     var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople + 2)
+        return grandTotal / Double(numberOfPeople + 2)
+    }
+
+    var grandTotal: Double {
         let tipSelection = Double(tipPercentage)
-
         let tipValue = checkAmount / 100 * tipSelection
-        let grandTotal = checkAmount + tipValue
-        let amountPerPerson = grandTotal / peopleCount
-
-        return amountPerPerson
+        return checkAmount + tipValue
     }
 
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    TextField("Amount", value: $checkAmount, format: .currency(code: localCurrency))
                         .keyboardType(.decimalPad)
                         .focused($amountIsFocused)
 
@@ -51,9 +51,24 @@ struct ContentView: View {
                     .pickerStyle(.segmented)
                 }
 
-                Section {
-                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                Section("Amount per person") {
+                    Text(totalPerPerson, format: .currency(code: localCurrency))
                 }
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 8) {
+                    Text("Grand Total")
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                    
+                    Text(grandTotal, format: .currency(code: localCurrency))
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
+                .padding(.horizontal)
             }
             .navigationTitle("WeSplit")
             .toolbarTitleDisplayMode(.inlineLarge)
