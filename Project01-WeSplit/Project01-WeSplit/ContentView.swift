@@ -64,6 +64,7 @@ struct ContentView: View {
                     Text(grandTotal, format: .currency(code: localCurrency))
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .foregroundStyle(tipPercentage == 0 ? .red : .primary)
                 }
                 .frame(maxWidth: .infinity)
                 .padding()

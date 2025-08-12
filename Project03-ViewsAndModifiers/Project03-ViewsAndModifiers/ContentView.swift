@@ -77,6 +77,13 @@ struct ContentView: View {
                 Image(systemName: "\(row * 4 + col).circle")
                 Text("R\(row) C\(col)")
             }
+
+            // Day 24
+            VStack {
+                Text("My custom title")
+                    .title()
+            }
+            .padding(.top, 24)
         }
     }
 }
@@ -148,6 +155,22 @@ struct GridStack<Content: View>: View {
                 }
             }
         }
+    }
+}
+
+struct TitleModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .fontWeight(.medium)
+            .foregroundStyle(.primary)
+            .fontDesign(.rounded)
+    }
+}
+
+extension View {
+    func title() -> some View {
+        modifier(TitleModifier())
     }
 }
 
