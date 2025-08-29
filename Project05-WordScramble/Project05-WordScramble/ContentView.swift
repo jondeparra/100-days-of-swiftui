@@ -8,57 +8,120 @@
 import SwiftUI
 
 struct ContentView: View {
-    let people = ["Finn", "Leie", "Luke", "Rey"]
+    @State private var usedWords = [String]()
+    @State private var rootWord = ""
+    @State private var newWord = ""
+
+    @FocusState private var isTextFieldFocused: Bool
+
+    @State private var errorTitle = ""
+    @State private var errorMessage = ""
+    @State private var showingError = false
+
     var body: some View {
-        List {
-            Section("People") {
-                ForEach(people, id: \.self) {
-                    Text($0)
+        NavigationStack {
+            List {
+                Section {
+                    TextField("Enter your word", text: $newWord)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                        .focused($isTextFieldFocused)
+
+                }
+
+                Section {
+                    ForEach(usedWords, id: \.self) { word in
+                        HStack {
+                            Image(systemName: "\(word.count).circle.fill")
+                            Text(word)
+                        }
+                    }
                 }
             }
-
-            Section("Static section") {
-                Text("Static row 1")
-                Text("Static row 2")
+            .navigationTitle(rootWord)
+            .toolbarTitleDisplayMode(.inlineLarge)
+            .onSubmit {
+                addNewWord()
+                isTextFieldFocused = true
             }
-
-            Section("Dynamic section") {
-                ForEach(1..<5) {
-                    Text("Dynamic Row \($0)")
-                }
+            .onAppear {
+                startGame()
+                isTextFieldFocused = true
             }
-
-            Section("Static section") {
-                Text("Static row 3")
-                Text("Static row 4")
-            }
-        }
-        .listStyle(.grouped)
-    }
-
-    func testBundles() {
-        if let fileURL = Bundle.main.url(forResource: "somefile", withExtension: "txt") {
-            if let fileContents = try? String(contentsOf: fileURL) {
-                // we loaded the file into a string!
+            .alert(errorTitle, isPresented: $showingError) { } message: {
+                Text(errorMessage)
             }
         }
     }
 
-    func testStrings() {
-        let input = "a b c"
-        let letters = input.components(separatedBy: .whitespacesAndNewlines)
-        let letter = letters.randomElement()
-        let trimmed = letter?.trimmingCharacters(in: .whitespacesAndNewlines)
+    func addNewWord() {
+        let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard answer.count > 0 else { return }
+
+        guard isOriginal(word: answer) else {
+            wordError(title: "Word used already", message: "Be more original")
+            return
+        }
+
+        guard isPossible(word: answer) else {
+            wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
+            return
+        }
+
+        guard isReal(word: answer) else {
+            wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
+            return
+        }
+
+        withAnimation {
+            usedWords.insert(answer, at: 0)
+        }
+
+        newWord = ""
     }
 
-    func testStrings2() {
-        let word = "swift"
+    func startGame() {
+        if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: ".txt") {
+            if let startWords = try? String(contentsOf: startWordsURL, encoding: .utf8) {
+                let allWords = startWords.components(separatedBy: "\n")
+                rootWord = allWords.randomElement() ?? "silkworm"
+                return
+            }
+        }
+
+        fatalError("Could not load start.txt from bundle.")
+    }
+
+    func isOriginal(word: String) -> Bool {
+        !usedWords.contains(word)
+    }
+
+    func isPossible(word: String) -> Bool {
+        var tempWord = rootWord
+
+        for letter in word {
+            if let pos = tempWord.firstIndex(of: letter) {
+                tempWord.remove(at: pos)
+            } else {
+                return false
+            }
+        }
+
+        return true
+    }
+
+    func isReal(word: String) -> Bool {
         let checker = UITextChecker()
-
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        return misspelledRange.location == NSNotFound
+    }
 
-        let allGodo = misspelledRange.location == NSNotFound
+    func wordError(title: String, message: String) {
+        errorTitle = title
+        errorMessage = message
+        showingError = true
     }
 }
 
