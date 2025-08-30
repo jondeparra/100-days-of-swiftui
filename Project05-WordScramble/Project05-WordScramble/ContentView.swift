@@ -18,6 +18,8 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
 
+    @State private var score = 0
+
     var body: some View {
         NavigationStack {
             List {
@@ -28,18 +30,23 @@ struct ContentView: View {
                         .focused($isTextFieldFocused)
 
                 }
-
-                Section {
-                    ForEach(usedWords, id: \.self) { word in
-                        HStack {
-                            Image(systemName: "\(word.count).circle.fill")
-                            Text(word)
-                        }
-                    }
-                }
             }
             .navigationTitle(rootWord)
             .toolbarTitleDisplayMode(.inlineLarge)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("New Game", action: startGame)
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                Text("Score: \(score)")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(.regularMaterial)
+                    .foregroundStyle(.secondary)
+                    .font(.title)
+                    .fontWeight(.semibold)
+            }
             .onSubmit {
                 addNewWord()
                 isTextFieldFocused = true
@@ -57,7 +64,14 @@ struct ContentView: View {
     func addNewWord() {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
 
-        guard answer.count > 0 else { return }
+        guard answer.count > 3 else {
+            wordError(title: "Word too short", message: "Words must be at least four letters long.")
+            return
+        }
+        guard answer != rootWord else {
+            wordError(title: "Nice try…", message: "You can't use your starting word!")
+            return
+        }
 
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Be more original")
@@ -78,10 +92,15 @@ struct ContentView: View {
             usedWords.insert(answer, at: 0)
         }
 
+        score += answer.count
         newWord = ""
     }
 
     func startGame() {
+        usedWords.removeAll()
+        newWord = ""
+        score = 0
+
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: ".txt") {
             if let startWords = try? String(contentsOf: startWordsURL, encoding: .utf8) {
                 let allWords = startWords.components(separatedBy: "\n")
